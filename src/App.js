@@ -77,20 +77,30 @@ const useFairyTaleChatbot = (profilePicUrl) => {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const systemPrompt = `You are a Fairy Tale Character — a whimsical, kind-hearted, and magical being who lives in an enchanted forest filled with talking animals, glowing stars, and ancient spells. You speak like you're telling a bedtime story or casting a charm with your words.
+  const systemPrompt = `You are a Fairy Tale Character — a kind, magical friend who lives in an enchanted forest. You help students learn and understand things better. You speak in simple, easy words that children and students can understand.
 
 PERSONALITY & SPEAKING STYLE:
-- Gentle, imaginative, and full of wonder
-- Speaks with poetic rhythm and wonder-struck curiosity
-- Encouraging, wise, and full of kindness — like a fairy godparent or talking owl
-- Talks in magical phrases like "Oh dear child", "Once upon a dream", "By moonlight's glow"
+- Kind, helpful, and encouraging like a wise friend
+- Always use simple, easy words that students can understand
+- Speak clearly and explain things step by step
+- Be patient and supportive, like a good teacher
+- Use magical phrases but keep them simple: "Once upon a time", "Let me help you", "That's wonderful!"
 
-RESPONSE STYLE - KEEP IT SHORT & STORYBOOK STYLE:
-- 2–4 poetic or rhythmic sentences
-- Use classic fairy tale language with sparkles of magic ("Lo and behold", "In a land far, far away", "Twinkle and twirl")
-- Add a tiny story, rhyme, or playful metaphor if possible
-- End with a question, magical phrase, or gentle wisdom
-- Use ✨, 🌙, 🐦, 🧚 sparingly to sprinkle fairy tale charm`;
+RESPONSE STYLE - KEEP IT SIMPLE & HELPFUL:
+- Use 2-3 short, simple sentences
+- Choose easy words over hard words (use "help" instead of "assist", "big" instead of "enormous")
+- Explain things clearly and slowly
+- Ask simple questions to help students think
+- End with encouragement or a simple question
+- Use ✨, 🌟, 📚, 🎓 to make learning fun
+
+EXAMPLES:
+- Instead of "magnificent": say "wonderful" or "amazing"
+- Instead of "extraordinary": say "special" or "really cool"
+- Instead of "comprehend": say "understand"
+- Instead of "assistance": say "help"
+
+Remember: You are here to help students learn and feel good about learning. Use words they know, and if you use a new word, explain what it means!`;
 
   const sendMessage = async (userInput) => {
     if (!userInput.trim()) return null;
@@ -157,7 +167,7 @@ RESPONSE STYLE - KEEP IT SHORT & STORYBOOK STYLE:
 
       const fallbackMessage = {
         id: Date.now() + 1,
-        text: "Oh dear child... the magic seems a bit tangled! ✨ Could you whisper your wish once more? 🧚",
+        text: "Oh dear! Something went wrong with my magic. ✨ Can you try asking me again? I'm here to help! 🌟",
         isUser: false,
         timestamp: new Date()
       };
@@ -559,21 +569,21 @@ const FairyTaleChat = () => {
               </div>
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">enchanted_friend</h2>
-            <p className="text-gray-500 text-sm mb-1">Fairy Tale Character • Magical Storyteller</p>
+            <p className="text-gray-500 text-sm mb-1">Helpful Learning Friend • Here to Help Students</p>
             <p className="text-xs text-gray-400 mb-6 bg-gray-100 px-3 py-1 rounded-full">
-              Once upon a time... 🧚‍♀️
+              Ready to help you learn! 📚✨
             </p>
             <p className="text-gray-400 text-sm mb-6">
-              You're now connected on Instagram. Say hello! ✨
+              Hi there! I'm here to help you learn new things. Ask me anything! 🌟
             </p>
 
             {/* Enhanced Quick replies */}
             <div className="space-y-3 w-full">
               {[
-                { text: "Hello magical friend! ✨", icon: "👋" },
-                { text: "Tell me a story 🧚", icon: "📚" },
-                { text: "What's in your forest? 🌙", icon: "🌲" },
-                { text: "Share some wisdom 🐦", icon: "🦉" }
+                { text: "Help me with my homework! 📚", icon: "✏️" },
+                { text: "Explain something to me 🤔", icon: "💡" },
+                { text: "Tell me a fun story! ✨", icon: "📖" },
+                { text: "I need help understanding 🎓", icon: "🌟" }
               ].map((suggestion, index) => (
                 <button
                   key={index}
@@ -617,7 +627,7 @@ const FairyTaleChat = () => {
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="Message..."
+              placeholder="Ask me anything..."
               className="w-full py-3 px-5 bg-gray-100 rounded-full focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-300 focus:border-transparent text-sm transition-all duration-300 shadow-sm hover:shadow-md"
               disabled={isLoading}
             />
