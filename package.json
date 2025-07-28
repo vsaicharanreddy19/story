@@ -1,7 +1,7 @@
 {
-  "name": "prabhas-chatbot",
+  "name": "FairyTale-chatbot",
   "version": "1.0.0",
-  "description": "AI Chatbot with Prabhas personality - Client Demo",
+  "description": "AI Chatbot Fairy Tale - Client Demo",
   "dependencies": {
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
